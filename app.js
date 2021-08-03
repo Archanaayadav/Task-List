@@ -145,7 +145,7 @@ function clearTasks(e){
     taskList.removeChild(taskList.firstChild);
   }
 
-  // Clear from LS
+  // Clear from Local Storage
   clearLS();
 }
 
