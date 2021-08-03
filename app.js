@@ -135,3 +135,37 @@ function removeLS(taskItem){
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
+// Clear all tasks
+function clearTasks(e){
+  // taskList.remove();
+  // taskList.innerHTML = ''; // or this way
+
+  while(taskList.firstChild){        // or this faster way
+    taskList.removeChild(taskList.firstChild);
+  }
+
+  // Clear from LS
+  clearLS();
+}
+
+// Clear from local storage
+function clearLS(){
+  localStorage.clear();
+}
+
+// filter tasks
+function filterTasks(e){
+  const text = e.target.value.toLowerCase();
+
+  document.querySelectorAll('.collection-item').forEach(
+    function(task){
+      const item = task.firstChild.textContent;
+      if(item.toLowerCase().indexOf(text) != -1){     // if value in filter task doesn't match any of the values in li having class collection-item then it will return -1. so when it not equal to -1 that is both the values matches it should display as block else display none.
+        task.style.display = 'block';
+      } else {
+        task.style.display = 'none';
+      }
+    }
+  )
+}
