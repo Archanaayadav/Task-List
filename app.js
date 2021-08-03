@@ -118,6 +118,7 @@ function removeTask(e){
   };
 }
 
+
 // Remove from LS
 function removeLS(taskItem){
   let tasks;
